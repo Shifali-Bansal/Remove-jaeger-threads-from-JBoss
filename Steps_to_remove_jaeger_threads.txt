@@ -1,0 +1,18 @@
+To remove Jaeger threads from a JBoss (WildFly) application server, you should ensure that Jaeger is no longer being used for tracing or monitoring. Here’s how to do this:
+
+### Steps to Remove Jaeger Integration from JBoss/WildFly
+
+1. **Stop JBoss:**
+   - First, stop the JBoss server.
+
+2. **Remove Jaeger Dependencies:**
+   - If you added Jaeger dependencies in your `pom.xml` (for Maven projects), remove them. Look for dependencies such as `jaeger-client` and any related libraries.
+   - If you’re using Gradle, check your `build.gradle` for Jaeger dependencies and remove them.
+
+3. **Update Configuration:**
+   - Check your `standalone.xml` or `domain.xml` configuration files for any Jaeger-related configurations. Remove or comment out the relevant sections, such as `<subsystem xmlns="urn:wildfly:microprofile-opentracing-smallrye:1.0"/>`, especially any related to tracing, Jaeger, or OpenTracing.
+   - If you have a custom configuration for tracing, make sure to remove those as well.
+
+4. **Restart JBoss:**
+   - After making these changes, restart the JBoss server.
+
